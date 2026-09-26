@@ -52,6 +52,10 @@ em { color: var(--sage); font-style: normal; }
 .wordmark { font: 800 1.15rem Manrope, sans-serif; letter-spacing: -.04em; }
 .wordmark b { color: var(--sage); }
 .descriptor { margin-top: .35rem; color: var(--muted); font: 600 .58rem Manrope, sans-serif; letter-spacing: .14em; text-transform: uppercase; }
+.brand-lockup { display: grid; line-height: 1; }
+.brand-wordmark { display: inline-flex; color: var(--ink); font: 700 2rem/.88 Manrope, sans-serif; letter-spacing: -.065em; white-space: nowrap; }
+.brand-accent { color: var(--sage); }
+.brand-descriptor { margin-top: .4rem; color: var(--sage-deep); font: 700 .57rem/1 Manrope, sans-serif; letter-spacing: .14em; text-transform: uppercase; }
 .site-nav { display: flex; align-items: center; gap: 1.35rem; }
 .site-nav > a:not(.button) { color: var(--black); font: 600 .86rem Manrope, sans-serif; text-decoration: none; }
 .site-nav > a:not(.button):hover { color: var(--sage-deep); }
@@ -386,7 +390,7 @@ em { color: var(--sage); font-style: normal; }
 
 @media (max-width: 560px) {
   .section-shell, .nav-shell { width: min(100% - 1.5rem, 74rem); }
-  .descriptor { display: none; }
+  .descriptor, .brand-descriptor { display: none; }
   .brand img { width: 2.65rem; }
   .hero { padding-top: 3rem; }
   .hero-orbit { padding: 0; background: none; }
@@ -414,7 +418,7 @@ em { color: var(--sage); font-style: normal; }
 
 @keyframes method-line-arrive-mobile { from { opacity: 0; transform: scaleY(0); } to { opacity: 1; transform: scaleY(1); } }
 
-/* Interchanging-circle presentation for The U Method. */
+/* Interchanging-circle presentation for the three-part counselling process. */
 .method-layout { display: grid; grid-template-columns: minmax(27rem, .9fr) minmax(0, 1.1fr); align-items: start; gap: clamp(3rem, 7vw, 7rem); }
 .method-circles { position: relative; width: min(100%, 34rem); height: 24rem; margin-top: .5rem; }
 .method-circle { position: absolute; display: grid; align-content: center; justify-items: center; width: 14.5rem; aspect-ratio: 1; padding: 1.65rem; color: var(--black); background: transparent; border: 1px solid var(--sage-light); border-radius: 50%; isolation: isolate; text-align: center; animation: method-circle-layer 12s steps(1, end) infinite; }

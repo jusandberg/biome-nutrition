@@ -1,4 +1,4 @@
-# The U Digest — [Month Year]
+# somaē Digest — [Month Year]
 
 Publish a future issue at `/digest/month-year/`. Do not publish this template itself.
 

@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>biome | Nutrition Counselling</title>
-  <link rel="icon" href="assets/biome-favicon.svg" type="image/svg+xml">
+  <title>somaē | Nutrition Counselling</title>
+  <link rel="icon" href="assets/somae-favicon.svg" type="image/svg+xml">
   <style>
     * { box-sizing: border-box; }
     html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; background: #f4f0e7; }
@@ -14,46 +14,18 @@
   </style>
 </head>
 <body>
-  <div class="loading" aria-live="polite">Preparing the biome preview…</div>
-  <iframe id="biome-site" src="u-method-original.html" title="biome Nutrition Counselling website"></iframe>
+  <div class="loading" aria-live="polite">Preparing the site…</div>
+  <iframe id="brand-site" src="home.html" title="somaē Nutrition Counselling website"></iframe>
 
+  <script src="brand-config.js"></script>
   <script>
-    const frame = document.getElementById('biome-site');
+    const BRAND = window.BRAND_CONFIG;
+    const frame = document.getElementById('brand-site');
     const siteBase = new URL('.', window.location.href).pathname;
     const sitePath = (path = '') => `${siteBase}${path.replace(/^\/+/, '')}`;
 
-    function wheelMarkup() {
-      return `
-        <span class="biome-o" aria-hidden="true">
-          <svg viewBox="0 0 48 48" focusable="false">
-            <circle class="biome-o-ring" cx="24" cy="24" r="15.5"></circle>
-            <g class="biome-o-lines">
-              <line x1="24" y1="24" x2="24" y2="5.5"></line>
-              <line x1="24" y1="24" x2="37" y2="11"></line>
-              <line x1="24" y1="24" x2="42.5" y2="24"></line>
-              <line x1="24" y1="24" x2="37" y2="37"></line>
-              <line x1="24" y1="24" x2="24" y2="42.5"></line>
-              <line x1="24" y1="24" x2="11" y2="37"></line>
-              <line x1="24" y1="24" x2="5.5" y2="24"></line>
-              <line x1="24" y1="24" x2="11" y2="11"></line>
-            </g>
-            <g class="biome-o-nodes">
-              <circle cx="24" cy="5.5" r="2"></circle><circle cx="37" cy="11" r="2"></circle>
-              <circle cx="42.5" cy="24" r="2"></circle><circle cx="37" cy="37" r="2"></circle>
-              <circle cx="24" cy="42.5" r="2"></circle><circle cx="11" cy="37" r="2"></circle>
-              <circle cx="5.5" cy="24" r="2"></circle><circle cx="11" cy="11" r="2"></circle>
-            </g>
-            <circle class="biome-o-centre" cx="24" cy="24" r="8"></circle>
-          </svg>
-        </span>`;
-    }
-
     function wordmarkMarkup(includeDescriptor = true) {
-      return `
-        <span class="biome-lockup">
-          <span class="biome-wordmark" aria-label="biome"><span class="biome-bi">bio</span><span class="biome-me">me</span></span>
-          ${includeDescriptor ? '<span class="biome-descriptor">Nutrition counselling</span>' : ''}
-        </span>`;
+      return window.brandWordmarkMarkup(includeDescriptor);
     }
 
     function insuranceMarkup() {
@@ -66,11 +38,7 @@
       while (walker.nextNode()) nodes.push(walker.currentNode);
       nodes.forEach((node) => {
         if (node.parentElement?.closest('script, style')) return;
-        node.nodeValue = node.nodeValue
-          .replaceAll('The U Digest', 'biome Digest')
-          .replaceAll('The U Method', 'biome')
-          .replaceAll('the U method', 'biome')
-          .replaceAll('BIOME', 'biome');
+        node.nodeValue = node.nodeValue.replaceAll('somaē', BRAND.name);
       });
     }
 
@@ -126,7 +94,7 @@
       const doc = frame.contentDocument;
       if (!doc?.body) return;
 
-      doc.title = 'biome | Nutrition Counselling';
+      doc.title = `${BRAND.name} | ${BRAND.descriptor}`;
       replaceText(doc);
 
       let favicon = doc.querySelector('link[rel="icon"]');
@@ -136,54 +104,41 @@
         favicon.type = 'image/svg+xml';
         doc.head.appendChild(favicon);
       }
-      favicon.href = 'assets/biome-favicon.svg';
+      favicon.href = sitePath(BRAND.favicon);
 
       const style = doc.createElement('style');
       style.textContent = `
         .brand { gap: 0 !important; }
-        .biome-lockup { display: grid; line-height: 1; }
-        .biome-wordmark { display: inline-flex; align-items: center; color: var(--ink); font: 800 2.3125rem/.86 Manrope, sans-serif; letter-spacing: -.075em; white-space: nowrap; }
-        .biome-bi { color: var(--ink); font-weight: 400; }
-        .biome-me { color: var(--sage); font-weight: 800; }
-        .biome-o { position: relative; display: inline-grid; width: .72em; height: .72em; margin: 0 .035em; place-items: center; transform: translateY(.035em); }
-        .biome-o::before { content: ''; position: absolute; inset: 4%; border-radius: 50%; background: radial-gradient(circle, #fff 0 34%, var(--cloud) 35% 76%, transparent 77%); }
-        .biome-o svg { position: relative; z-index: 1; width: 100%; height: 100%; overflow: visible; }
-        .biome-o-ring { fill: none; stroke: var(--sage-light); stroke-width: 1; stroke-dasharray: 1 3; }
-        .biome-o-lines { stroke: var(--sage-light); stroke-width: 1; }
-        .biome-o-nodes { fill: var(--sage); }
-        .biome-o-centre { fill: var(--ink); stroke: none; }
-        .biome-descriptor { margin-top: .42rem; color: var(--sage-deep); font: 700 .57rem/1 Manrope, sans-serif; letter-spacing: .14em; text-transform: uppercase; }
+        .brand-lockup { display: grid; line-height: 1; }
+        .brand-wordmark { display: inline-flex; align-items: center; color: var(--ink); font: 700 2.3125rem/.86 Manrope, sans-serif; letter-spacing: -.065em; white-space: nowrap; }
+        .brand-accent { color: var(--sage); }
+        .brand-descriptor { margin-top: .42rem; color: var(--sage-deep); font: 700 .57rem/1 Manrope, sans-serif; letter-spacing: .14em; text-transform: uppercase; }
         .hero-orbit .orbit-u { font-size: 1.25rem !important; letter-spacing: -.02em; }
-        .contact .biome-lockup { justify-items: center; margin-bottom: .5rem; }
-        .contact .biome-wordmark { color: #fff; font-size: 3.2rem; }
-        .contact .biome-bi { color: #fff; }
-        .contact .biome-me { color: var(--sage-light); }
-        .contact .biome-o-ring, .contact .biome-o-lines { stroke: rgba(255,255,255,.42); }
-        .contact .biome-o-nodes { fill: var(--sage-light); }
-        .contact .biome-o-centre { fill: #fff; stroke: none; }
-        .contact .biome-o::before { background: radial-gradient(circle, var(--ink) 0 35%, rgba(255,255,255,.1) 36% 76%, transparent 77%); }
-        .biome-service-visual { margin: 0; padding: 0; overflow: hidden; min-height: 18rem; display: grid; place-items: end center; background: #fff; }
-        .biome-service-visual img { display: block; width: 100%; height: 100%; min-height: 18rem; object-fit: cover; object-position: 50% 72%; }
-        .biome-insurance { overflow: hidden; color: var(--ink); border: 1px solid var(--line); border-radius: var(--radius); background: var(--paper); box-shadow: 0 18px 40px rgba(36,51,65,.06); }
-        .biome-insurance summary { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1.25rem 1.4rem; cursor: pointer; list-style: none; font: 700 1rem/1.25 Manrope,sans-serif; }
-        .biome-insurance summary::-webkit-details-marker { display: none; }
-        .biome-insurance summary::after { content: '⌄'; flex: 0 0 auto; color: var(--sage-deep); font-size: 1.35rem; font-weight: 500; line-height: 1; transform: translateY(-.12rem); }
-        .biome-insurance[open] summary::after { transform: rotate(180deg) translateY(-.12rem); }
-        .biome-insurance[open] summary { border-bottom: 1px solid var(--line); }
-        .biome-insurance p { margin: 0; padding: 1.25rem 1.5rem 1.5rem; color: var(--muted); font-size: .94rem; }
+        .contact .brand-lockup { justify-items: center; margin-bottom: .5rem; }
+        .contact .brand-wordmark { color: #fff; font-size: 3.2rem; }
+        .contact .brand-accent { color: var(--sage-light); }
+        .brand-service-visual { margin: 0; padding: 0; overflow: hidden; min-height: 18rem; display: grid; place-items: end center; background: #fff; }
+        .brand-service-visual img { display: block; width: 100%; height: 100%; min-height: 18rem; object-fit: cover; object-position: 50% 72%; }
+        .brand-insurance { overflow: hidden; color: var(--ink); border: 1px solid var(--line); border-radius: var(--radius); background: var(--paper); box-shadow: 0 18px 40px rgba(36,51,65,.06); }
+        .brand-insurance summary { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1.25rem 1.4rem; cursor: pointer; list-style: none; font: 700 1rem/1.25 Manrope,sans-serif; }
+        .brand-insurance summary::-webkit-details-marker { display: none; }
+        .brand-insurance summary::after { content: '⌄'; flex: 0 0 auto; color: var(--sage-deep); font-size: 1.35rem; font-weight: 500; line-height: 1; transform: translateY(-.12rem); }
+        .brand-insurance[open] summary::after { transform: rotate(180deg) translateY(-.12rem); }
+        .brand-insurance[open] summary { border-bottom: 1px solid var(--line); }
+        .brand-insurance p { margin: 0; padding: 1.25rem 1.5rem 1.5rem; color: var(--muted); font-size: .94rem; }
         .insurance-title { display: inline-flex; align-items: center; gap: .75rem; }
         .insurance-title svg { width: 1.35rem; height: 1.35rem; fill: none; stroke: var(--sage-deep); stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
-        .biome-insurance-hero { align-self: end; }
-        .services .biome-insurance { max-width: 45rem; margin-top: 1rem; color: var(--ink); border-color: var(--line); background: var(--cloud); box-shadow: none; }
-        .services .biome-insurance summary { color: var(--ink); }
-        .services .biome-insurance summary::after { color: var(--sage-deep); }
-        .services .biome-insurance[open] summary { border-color: var(--line); }
-        .services .biome-insurance p { color: var(--muted); }
-        .services .biome-insurance .insurance-title svg { stroke: var(--sage-deep); }
-        .biome-intro-chat { width: 100%; max-width: 68rem; margin: 2rem 0 0; padding: 1.4rem 1.55rem; color: var(--ink); border: 1px solid var(--line); border-radius: 1.25rem; background: var(--cloud); }
-        .biome-intro-chat p { margin: 0; }
-        .biome-intro-chat p + p { margin-top: .4rem; }
-        .biome-intro-chat a { display: inline-block; margin-top: .85rem; color: var(--ink); font-weight: 700; text-underline-offset: .28rem; }
+        .brand-insurance-hero { align-self: end; }
+        .services .brand-insurance { max-width: 45rem; margin-top: 1rem; color: var(--ink); border-color: var(--line); background: var(--cloud); box-shadow: none; }
+        .services .brand-insurance summary { color: var(--ink); }
+        .services .brand-insurance summary::after { color: var(--sage-deep); }
+        .services .brand-insurance[open] summary { border-color: var(--line); }
+        .services .brand-insurance p { color: var(--muted); }
+        .services .brand-insurance .insurance-title svg { stroke: var(--sage-deep); }
+        .brand-intro-chat { width: 100%; max-width: 68rem; margin: 2rem 0 0; padding: 1.4rem 1.55rem; color: var(--ink); border: 1px solid var(--line); border-radius: 1.25rem; background: var(--cloud); }
+        .brand-intro-chat p { margin: 0; }
+        .brand-intro-chat p + p { margin-top: .4rem; }
+        .brand-intro-chat a { display: inline-block; margin-top: .85rem; color: var(--ink); font-weight: 700; text-underline-offset: .28rem; }
         .services .price-card:nth-child(1) { background: #304250; border-color: rgba(199,210,196,.28); }
         .services .price-card:nth-child(2) { background: #3d4c4b; border-color: rgba(199,210,196,.32); }
         .services .price-card:nth-child(3) { background: #53684f; border-color: transparent; }
@@ -229,12 +184,12 @@
         .behaviour-scope p { max-width: 70rem; margin: 0; font-size: .86rem; }
         .behaviour-hero .reveal, .behaviour-knowing .reveal, .behaviour-factors .reveal, .behaviour-relationship .reveal, .behaviour-together .reveal { opacity: 1 !important; transform: none !important; }
         @media (max-width: 760px) {
-          .biome-wordmark { font-size: 2rem; }
+          .brand-wordmark { font-size: 2rem; }
           .about-copy { min-width: 0; width: 100%; }
           .about-copy .service-line { white-space: normal; }
           .expect-heading { gap: 1rem !important; }
           .expect-heading h2 { max-width: 13ch; font-size: clamp(2.25rem, 10.5vw, 3.25rem); line-height: 1.02; }
-          .biome-service-visual, .biome-service-visual img { min-height: 12rem; }
+          .brand-service-visual, .brand-service-visual img { min-height: 12rem; }
           .behaviour-ecosystem { min-height: 20rem; }
           .relationship-map { grid-template-columns: 1fr; gap: .55rem; }
           .relationship-map > b { transform: rotate(90deg); transform-origin: left center; }
@@ -251,8 +206,8 @@
 
       const brand = doc.querySelector('.brand');
       if (brand) {
-        brand.setAttribute('aria-label', 'biome Nutrition Counselling home');
-        brand.setAttribute('href', sitePath('u-method-original.html'));
+        brand.setAttribute('aria-label', `${BRAND.name} ${BRAND.descriptor} home`);
+        brand.setAttribute('href', sitePath('home.html'));
         brand.innerHTML = wordmarkMarkup(true);
       }
 
@@ -261,7 +216,7 @@
       const centreWord = orbit?.querySelector('.orbit-u');
       if (centreWord) centreWord.textContent = 'you';
 
-      const methodEyebrow = [...doc.querySelectorAll('.eyebrow')].find((el) => el.textContent.trim().toLowerCase() === 'biome');
+      const methodEyebrow = [...doc.querySelectorAll('.eyebrow')].find((el) => el.textContent.trim().toLowerCase() === BRAND.name.toLowerCase());
       if (methodEyebrow) methodEyebrow.textContent = 'How we work together';
 
       const homeMethod = doc.querySelector('#method');
@@ -321,9 +276,6 @@
       const contactTitle = contact?.querySelector('h2');
       if (contactTitle && !isBehaviourPage) contactTitle.innerHTML = 'It starts with <em>you.</em>';
 
-      doc.querySelectorAll('figcaption').forEach((caption) => {
-        if (caption.textContent.includes('No one-size-fits-all rules')) caption.remove();
-      });
       doc.querySelectorAll('.quote-line').forEach((quote) => {
         if (quote.textContent.includes('To make nutrition easier to understand and easier to live')) quote.remove();
       });
@@ -375,17 +327,17 @@
             <div class="price-row"><a href="mailto:hello@theumethod.ca?subject=Personalized%20nutrition%20package">Book ↗</a></div>
           </article>`;
 
-        const existingChat = services.querySelector('.biome-intro-chat');
+        const existingChat = services.querySelector('.brand-intro-chat');
         if (existingChat) existingChat.remove();
         const chat = doc.createElement('aside');
-        chat.className = 'biome-intro-chat';
+        chat.className = 'brand-intro-chat';
         chat.innerHTML = `<p><strong>Not sure where to start?</strong></p><p>Book a complimentary <strong>15-minute introductory chat</strong> to ask questions and see whether working together feels like a good fit.</p><a href="mailto:hello@theumethod.ca?subject=Free%2015-minute%20introductory%20chat">Book a free 15-minute chat →</a>`;
         pricingGrid.insertAdjacentElement('afterend', chat);
 
         const coverageNote = services.querySelector('.coverage-note');
         if (coverageNote && !isServicesPage) {
           const insurance = doc.createElement('details');
-          insurance.className = 'biome-insurance';
+          insurance.className = 'brand-insurance';
           insurance.innerHTML = insuranceMarkup();
           coverageNote.replaceWith(insurance);
         }
@@ -400,7 +352,7 @@
 
         const aside = pageHero?.querySelector('.page-hero-aside');
         if (aside) {
-          aside.className = 'biome-insurance biome-insurance-hero';
+          aside.className = 'brand-insurance brand-insurance-hero';
           aside.innerHTML = insuranceMarkup();
           const details = doc.createElement('details');
           details.className = aside.className;
@@ -441,8 +393,8 @@
       doc.querySelectorAll('a').forEach((link) => {
         const originalHref = link.getAttribute('href');
         if (originalHref === '/faq/') { link.remove(); return; }
-        if (originalHref === '/') link.setAttribute('href', sitePath('u-method-original.html'));
-        else if (originalHref === '/#who') link.setAttribute('href', `${sitePath('u-method-original.html')}#who`);
+        if (originalHref === '/') link.setAttribute('href', sitePath('home.html'));
+        else if (originalHref === '/#who') link.setAttribute('href', `${sitePath('home.html')}#who`);
         else if (originalHref?.startsWith('/') && !originalHref.startsWith('//') && !originalHref.startsWith(siteBase)) link.setAttribute('href', sitePath(originalHref));
         if (link.textContent.trim().toLowerCase().startsWith('learn more')) { link.remove(); return; }
         if (link.closest('.site-nav') && link.getAttribute('href')?.includes('/nutrition-behaviour-change/')) link.textContent = 'Nutrition & behaviour';
@@ -452,7 +404,7 @@
       });
 
       doc.querySelectorAll('[aria-label]').forEach((el) => {
-        el.setAttribute('aria-label', el.getAttribute('aria-label').replaceAll('The U Method', 'biome').replaceAll('The U Digest', 'biome Digest').replaceAll('BIOME', 'biome'));
+        el.setAttribute('aria-label', el.getAttribute('aria-label').replaceAll('somaē', BRAND.name));
       });
 
       document.documentElement.classList.add('ready');

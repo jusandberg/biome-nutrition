@@ -15,7 +15,7 @@
       description: 'Clear, credible writing that makes a nutrition or health topic easier to understand.',
       title: 'Health Canada’s 2025 evidence review supporting Canada’s Food Guide',
       summary: 'A concise review of current evidence, including how social, cultural, economic and physical environments shape eating decisions.',
-      why: 'It reflects the idea at the centre of biome: food choices happen within a person’s wider life and environment.',
+      why: 'It reflects the idea at the centre of somaē: food choices happen within a person’s wider life and environment.',
       url: 'https://www.canada.ca/en/health-canada/services/food-guide/educators-professionals/evidence-review-cycle/summaries/2025.html?utm_source=chatgpt.com',
       action: 'Read the evidence review',
       icon: '<path d="M5 4h14v16H5z"></path><path d="M8 8h8M8 12h8M8 16h5"></path>'
