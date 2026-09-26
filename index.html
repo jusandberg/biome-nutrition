@@ -443,7 +443,7 @@
         if (originalHref === '/faq/') { link.remove(); return; }
         if (originalHref === '/') link.setAttribute('href', sitePath('u-method-original.html'));
         else if (originalHref === '/#who') link.setAttribute('href', `${sitePath('u-method-original.html')}#who`);
-        else if (originalHref?.startsWith('/') && !originalHref.startsWith('//')) link.setAttribute('href', sitePath(originalHref));
+        else if (originalHref?.startsWith('/') && !originalHref.startsWith('//') && !originalHref.startsWith(siteBase)) link.setAttribute('href', sitePath(originalHref));
         if (link.textContent.trim().toLowerCase().startsWith('learn more')) { link.remove(); return; }
         if (link.closest('.site-nav') && link.getAttribute('href')?.includes('/nutrition-behaviour-change/')) link.textContent = 'Nutrition & behaviour';
         if (link.closest('.site-nav') && link.getAttribute('href')?.includes('/digest/')) link.textContent = 'Digest';
