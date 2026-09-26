@@ -19,6 +19,8 @@
 
   <script>
     const frame = document.getElementById('biome-site');
+    const siteBase = new URL('.', window.location.href).pathname;
+    const sitePath = (path = '') => `${siteBase}${path.replace(/^\/+/, '')}`;
 
     function wheelMarkup() {
       return `
@@ -250,7 +252,7 @@
       const brand = doc.querySelector('.brand');
       if (brand) {
         brand.setAttribute('aria-label', 'biome Nutrition Counselling home');
-        brand.setAttribute('href', '/u-method-original.html');
+        brand.setAttribute('href', sitePath('u-method-original.html'));
         brand.innerHTML = wordmarkMarkup(true);
       }
 
@@ -437,10 +439,12 @@
       homeFaq?.querySelector('a[href="/faq/"]')?.remove();
 
       doc.querySelectorAll('a').forEach((link) => {
-        if (link.getAttribute('href') === '/') link.setAttribute('href', '/u-method-original.html');
-        if (link.getAttribute('href') === '/#who') link.setAttribute('href', '/u-method-original.html#who');
+        const originalHref = link.getAttribute('href');
+        if (originalHref === '/faq/') { link.remove(); return; }
+        if (originalHref === '/') link.setAttribute('href', sitePath('u-method-original.html'));
+        else if (originalHref === '/#who') link.setAttribute('href', `${sitePath('u-method-original.html')}#who`);
+        else if (originalHref?.startsWith('/') && !originalHref.startsWith('//')) link.setAttribute('href', sitePath(originalHref));
         if (link.textContent.trim().toLowerCase().startsWith('learn more')) { link.remove(); return; }
-        if (link.getAttribute('href') === '/faq/') { link.remove(); return; }
         if (link.closest('.site-nav') && link.getAttribute('href')?.includes('/nutrition-behaviour-change/')) link.textContent = 'Nutrition & behaviour';
         if (link.closest('.site-nav') && link.getAttribute('href')?.includes('/digest/')) link.textContent = 'Digest';
         if (link.textContent.includes('discovery call')) link.textContent = link.textContent.replace('discovery call', 'introductory chat');
