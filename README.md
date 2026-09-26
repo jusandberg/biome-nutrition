@@ -15,6 +15,8 @@ Serve this directory with any static web server and open `index.html`.
 - `index.html` - somaē presentation layer and homepage entry point
 - `home.html` - source homepage used by the presentation layer
 - `brand-config.js` - central working brand name, descriptor, tagline and favicon configuration
+- `SOMAE-BRAND-GUIDELINES.md` - canonical written brand rules and implementation guidance
+- `brand-guide.html` - interactive visual companion for the approved brand system
 - `nutritional-counselling/` - services, appointments, pricing and FAQ
 - `nutrition-behaviour-change/` - physiology and behaviour approach
 - `digest/` - curated nutrition and behaviour-change resources
