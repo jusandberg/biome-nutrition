@@ -34,3 +34,18 @@ if (reduceMotion || !('IntersectionObserver' in window)) {
 
 const year = document.querySelector('#year');
 if (year) year.textContent = new Date().getFullYear();
+
+const whoTiles = [...document.querySelectorAll('.who-tile')];
+const whoPanel = document.querySelector('.who-panel');
+
+whoTiles.forEach((tile) => {
+  tile.addEventListener('click', () => {
+    whoTiles.forEach((item) => item.setAttribute('aria-selected', String(item === tile)));
+    if (!whoPanel) return;
+    const icon = tile.querySelector('svg');
+    const panelIcon = whoPanel.querySelector('.who-panel-icon');
+    if (icon && panelIcon) panelIcon.innerHTML = icon.outerHTML;
+    whoPanel.querySelector('h3').textContent = tile.dataset.title;
+    whoPanel.querySelector('p').textContent = tile.dataset.description;
+  });
+});
