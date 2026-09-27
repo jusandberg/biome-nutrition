@@ -53,8 +53,9 @@ em { color: var(--sage); font-style: normal; }
 .wordmark b { color: var(--sage); }
 .descriptor { margin-top: .35rem; color: var(--muted); font: 600 .58rem Manrope, sans-serif; letter-spacing: .14em; text-transform: uppercase; }
 .brand-lockup { display: grid; line-height: 1; }
-.brand-wordmark { display: inline-flex; color: var(--ink); font: 700 2rem/.88 Manrope, sans-serif; letter-spacing: -.065em; white-space: nowrap; }
-.brand-accent { color: var(--sage); }
+.brand-wordmark { display: inline-flex; align-items: baseline; color: var(--ink); font: 300 2rem/1 Manrope, sans-serif; letter-spacing: -.045em; white-space: nowrap; }
+.brand-accent { position: relative; color: inherit; }
+.brand-accent::before { content: ""; position: absolute; top: .02em; right: .08em; left: .08em; height: .1em; border-radius: 1em; background: var(--sage); }
 .brand-descriptor { margin-top: .4rem; color: var(--sage-deep); font: 700 .57rem/1 Manrope, sans-serif; letter-spacing: .14em; text-transform: uppercase; }
 .site-nav { display: flex; align-items: center; gap: 1.35rem; }
 .site-nav > a:not(.button) { color: var(--black); font: 600 .86rem Manrope, sans-serif; text-decoration: none; }
@@ -214,6 +215,9 @@ em { color: var(--sage); font-style: normal; }
 
 .contact { text-align: center; color: white; background: var(--ink-deep); }
 .contact-inner { display: grid; justify-items: center; }
+.contact .brand-lockup { justify-items: center; margin-bottom: .5rem; }
+.contact .brand-wordmark { color: white; font-size: 3.2rem; }
+.contact .brand-accent::before { background: var(--sage-light); }
 .contact img { margin-bottom: 1.5rem; }
 .contact .eyebrow { color: var(--sage-light); }
 .contact h2 { max-width: none; color: white; font-size: clamp(3.5rem, 8vw, 7rem); }

@@ -9,11 +9,10 @@
     favicon: 'assets/somae-favicon.svg'
   });
 
-  const wordmarkBase = BRAND_CONFIG.name.slice(0, -1);
-  const wordmarkAccent = BRAND_CONFIG.name.slice(-1);
+  const wordmarkBase = 'soma';
   const wordmarkMarkup = (includeDescriptor = true) => `
     <span class="brand-lockup">
-      <span class="brand-wordmark" aria-label="${BRAND_CONFIG.name}"><span>${wordmarkBase}</span><span class="brand-accent">${wordmarkAccent}</span></span>
+      <span class="brand-wordmark" aria-label="${BRAND_CONFIG.name}"><span>${wordmarkBase}</span><span class="brand-accent" aria-hidden="true">e</span></span>
       ${includeDescriptor ? `<span class="brand-descriptor">${BRAND_CONFIG.descriptor}</span>` : ''}
     </span>`;
 
