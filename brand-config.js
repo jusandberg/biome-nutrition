@@ -16,6 +16,20 @@
       ${includeDescriptor ? `<span class="brand-descriptor">${BRAND_CONFIG.descriptor}</span>` : ''}
     </span>`;
 
+  const applyProjectPageLinks = (root = document) => {
+    const projectPath = '/biome-nutrition';
+    const isProjectPage = window.location.hostname.endsWith('.github.io')
+      && window.location.pathname.startsWith(`${projectPath}/`);
+
+    if (!isProjectPage) return;
+
+    root.querySelectorAll('a[href^="/"]').forEach((link) => {
+      const href = link.getAttribute('href');
+      if (href.startsWith(`${projectPath}/`)) return;
+      link.setAttribute('href', `${projectPath}${href}`);
+    });
+  };
+
   const applyBranding = (root = document) => {
     root.querySelectorAll('.brand').forEach((brand) => {
       brand.setAttribute('aria-label', `${BRAND_CONFIG.name} ${BRAND_CONFIG.descriptor} home`);
@@ -31,6 +45,8 @@
       const attribute = element.hasAttribute('content') ? 'content' : 'aria-label';
       element.setAttribute(attribute, element.getAttribute(attribute).replaceAll(SOURCE_BRAND_NAME, BRAND_CONFIG.name));
     });
+
+    applyProjectPageLinks(root);
   };
 
   window.BRAND_CONFIG = BRAND_CONFIG;
