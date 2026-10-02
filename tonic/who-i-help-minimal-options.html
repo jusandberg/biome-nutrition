@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en-CA">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>hōlus | Minimal Who I Help — 5 Options</title>
+  <link rel="icon" href="tonic-favicon.svg?v=2" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Manrope:wght@300;600;700;800&amp;display=swap" rel="stylesheet">
+  <style>
+    :root{--ink:#243341;--ink-deep:#18232d;--sage:#71836d;--sage-deep:#4b5d49;--sage-light:#c7d2c4;--mist:#eef2ed;--cloud:#f7f8f6;--line:#dfe4de;--paper:#fff;--muted:#596166;--radius:1.5rem}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:#000;background:#e9ede8;font:400 1rem/1.65 Inter,Arial,sans-serif;-webkit-font-smoothing:antialiased}h1,h2,p{margin-top:0}h1,h2{font-family:Manrope,sans-serif;letter-spacing:-.035em;text-wrap:balance}h1{max-width:13ch;margin-bottom:1rem;font-size:clamp(2.8rem,6vw,5.2rem);line-height:1}h2{font-size:clamp(2.6rem,5vw,4.5rem);line-height:1.02}.shell{width:min(100% - 2rem,74rem);margin-inline:auto}.topbar{position:sticky;z-index:20;top:0;padding:.85rem 0;border-bottom:1px solid var(--line);background:rgba(255,255,255,.94);backdrop-filter:blur(16px)}.topbar-inner{display:flex;align-items:center;justify-content:space-between;gap:1rem}.wordmark{color:var(--ink);font:300 2rem/1 Manrope,sans-serif;letter-spacing:-.055em}.jump{display:flex;gap:.45rem}.jump a{display:grid;place-items:center;width:2.5rem;height:2.5rem;color:var(--ink);background:var(--mist);border-radius:50%;font-weight:700;text-decoration:none}.intro{padding:4rem 0 3rem}.intro p{max-width:48rem;color:var(--muted)}.eyebrow{margin:0 0 1rem;color:var(--sage-deep);font:700 .76rem/1.2 Manrope,sans-serif;letter-spacing:.1em;text-transform:uppercase}.option{margin-bottom:1.25rem;padding:clamp(2rem,5vw,4.5rem);overflow:hidden;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius)}.option-label{display:flex;align-items:center;gap:.7rem;margin-bottom:3.25rem;color:var(--sage-deep);font:700 .74rem/1.2 Manrope,sans-serif;letter-spacing:.1em;text-transform:uppercase}.option-label b{display:grid;place-items:center;width:2rem;height:2rem;color:#fff;background:var(--sage);border-radius:50%;letter-spacing:0}.heading{margin-bottom:3.5rem}.heading h2{max-width:13ch}.heading>p:not(.eyebrow){max-width:40rem;margin:.9rem 0 0;color:var(--muted)}.icon{flex:0 0 auto;width:2rem;height:2rem;fill:none;stroke:var(--ink);stroke-width:1.55;stroke-linecap:round;stroke-linejoin:round}.support p{margin:0;color:var(--muted);font-size:.9rem;line-height:1.55}.support strong{color:var(--ink);font-weight:700}
+    /* 1 */.columns{display:grid;grid-template-columns:repeat(6,1fr);border-block:1px solid var(--line)}.columns .support{min-height:12rem;padding:1.5rem 1.2rem;border-right:1px solid var(--line)}.columns .support:last-child{border-right:0}.columns .icon{margin-bottom:2.2rem}.columns p{font-size:.78rem}
+    /* 2 */.two-column{display:grid;grid-template-columns:1fr 1fr;column-gap:4rem;border-top:1px solid var(--line)}.two-column .support{display:grid;grid-template-columns:3rem 1fr;align-items:start;gap:1rem;padding:1.4rem 0;border-bottom:1px solid var(--line)}.two-column .icon{width:2.15rem;height:2.15rem}.swipe-hint{display:none}
+    /* 3 */.path{position:relative;display:grid;grid-template-columns:repeat(6,1fr);gap:1.25rem;padding-top:1rem}.path::before{content:"";position:absolute;top:2rem;right:7%;left:7%;height:1px;background:var(--sage-light)}.path .support{position:relative;text-align:center}.path .icon{position:relative;z-index:1;margin:0 auto 2rem;background:var(--paper);box-shadow:0 0 0 .75rem var(--paper)}.path p{font-size:.78rem}
+    /* 4 */.stagger{display:grid;grid-template-columns:repeat(3,1fr);gap:0 4rem}.stagger .support{display:grid;grid-template-columns:2.5rem 1fr;gap:1rem;padding:1.75rem 0;border-bottom:1px solid var(--line)}.stagger .support:nth-child(2),.stagger .support:nth-child(5){transform:translateY(2rem)}
+    /* 5 */.dark{color:#fff;background:var(--ink)}.dark .option-label,.dark .eyebrow{color:var(--sage-light)}.dark h2{color:#fff}.dark .heading>p:not(.eyebrow){color:rgba(255,255,255,.68)}.dark .icon{stroke:#fff}.dark .support p{color:rgba(255,255,255,.68)}.dark .support strong{color:#fff}.dark-flow{display:grid;grid-template-columns:repeat(3,1fr);gap:0 3rem}.dark-flow .support{display:flex;align-items:flex-start;gap:1rem;padding:1.5rem 0;border-top:1px solid rgba(255,255,255,.2)}.dark-flow .support:nth-child(-n+3){border-top-color:var(--sage)}
+    @media(max-width:900px){.columns{grid-template-columns:repeat(3,1fr)}.columns .support:nth-child(3){border-right:0}.columns .support:nth-child(-n+3){border-bottom:1px solid var(--line)}.path{grid-template-columns:repeat(3,1fr);gap:2.5rem 1.25rem}.path::before{display:none}.stagger,.dark-flow{grid-template-columns:1fr 1fr}.stagger .support:nth-child(n){transform:none}}
+    @media(max-width:560px){.topbar-inner{align-items:flex-start;flex-direction:column}.jump a{width:2.75rem;height:2.75rem}.option{padding:1.5rem}.columns{grid-template-columns:1fr 1fr}.columns .support{min-height:10rem;padding:1.25rem .8rem}.columns .support:nth-child(n){border-right:1px solid var(--line);border-bottom:1px solid var(--line)}.columns .support:nth-child(2n){border-right:0}.columns .support:nth-last-child(-n+2){border-bottom:0}.columns .icon{margin-bottom:1.3rem}.stagger,.dark-flow{grid-template-columns:1fr;column-gap:0}.path{grid-template-columns:1fr 1fr}.path .icon{margin-bottom:1.1rem}.dark-flow .support:nth-child(n){border-top:1px solid rgba(255,255,255,.2)}#two{padding-inline:0}#two>.option-label,#two>.heading,#two>.swipe-hint{margin-inline:1.5rem}.swipe-hint{display:flex;align-items:center;gap:.5rem;margin:-1.8rem 0 1.25rem;color:var(--sage-deep);font:700 .72rem/1.2 Manrope,sans-serif;letter-spacing:.08em;text-transform:uppercase}.swipe-hint::after{content:"\2192";font-size:1rem}.two-column{display:flex;gap:0;overflow-x:auto;overscroll-behavior-inline:contain;scroll-snap-type:x mandatory;scrollbar-width:none;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding-inline:1.5rem}.two-column::-webkit-scrollbar{display:none}.two-column .support{flex:0 0 78%;min-height:12.5rem;display:flex;flex-direction:column;gap:1.4rem;padding:1.5rem 1.35rem 1.5rem 0;margin-right:1.35rem;border-right:1px solid var(--line);border-bottom:0;scroll-snap-align:start}.two-column .support:last-child{margin-right:0;border-right:0}.two-column .icon{width:2.4rem;height:2.4rem}.two-column .support p{max-width:16rem;font-size:.94rem}}
+  </style>
+</head>
+<body>
+  <svg width="0" height="0" style="position:absolute"><defs>
+    <symbol id="i-glp" viewBox="0 0 32 32"><path d="m9 23 11-11m-7-4 11 11M16 5l11 11-5 5L11 10l5-5ZM6 26l5-2-3-3-2 5Z"/><path d="M22.5 5.5 26.5 9.5" stroke="#71836d"/></symbol>
+    <symbol id="i-leaf" viewBox="0 0 32 32"><path d="M25.5 6.5C14 7 7.5 13 7.5 21c0 3 2 5 5 5 8 0 13-7.5 13-19.5Z"/><path d="M8.5 25c4-6 8-10 14-14" stroke="#71836d"/><path d="m14 19 1-5m2 2 4 .5"/></symbol>
+    <symbol id="i-talk" viewBox="0 0 32 32"><path d="M5 7.5h15a3 3 0 0 1 3 3v6a3 3 0 0 1-3 3h-8l-5 4v-4a3 3 0 0 1-2-3v-6a3 3 0 0 1 3-3Z"/><path d="M11 12h7m-7 4h4" stroke="#71836d"/><path d="M24 14.5h1a2 2 0 0 1 2 2v7l-3-2h-5"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 32 32"><circle cx="16" cy="16" r="11"/><path d="M16 9v7l5 3" stroke="#71836d"/><path d="M16 5V3m11 13h2"/></symbol>
+    <symbol id="i-digest" viewBox="0 0 32 32"><path d="M11 5v6c0 4 12 3 12 8s-12 4-12 8M21 5v3M11 27v1"/><path d="M11 12c3 1 7 0 9-2m-8 14c3-1 7 0 9 2" stroke="#71836d"/></symbol>
+    <symbol id="i-active" viewBox="0 0 32 32"><circle cx="20" cy="6" r="2.5"/><path d="m9 28 5-9 5 4 1 6M9 15l6-5 5 3 3 5M15 10l1.5 8"/><path d="m5 21 5-2m14 2 4 2" stroke="#71836d"/></symbol>
+  </defs></svg>
+  <header class="topbar"><div class="shell topbar-inner"><span class="wordmark">hōlus</span><nav class="jump" aria-label="Jump to an option"><a href="#one">1</a><a href="#two">2</a><a href="#three">3</a><a href="#four">4</a><a href="#five">5</a></nav></div></header>
+  <main>
+    <div class="shell intro"><p class="eyebrow">Minimal Who I help exploration</p><h1>Only the icon and one sentence.</h1><p>No cards, panels or topic containers. These five layouts use whitespace, rhythm and fine dividers to organize the same six areas.</p></div>
+
+    <section class="shell option" id="one"><div class="option-label"><b>1</b> Reference-style columns</div><div class="heading"><p class="eyebrow">Who I help</p><h2>Support for different needs and seasons.</h2></div><div class="columns">
+      <div class="support"><svg class="icon" aria-hidden="true"><use href="#i-glp"/></svg><p><strong>GLP-1 support</strong> alongside care from your prescribing healthcare provider.</p></div>
+      <div class="support"><svg class="icon" aria-hidden="true"><use href="#i-leaf"/></svg><p><strong>Midlife nutrition</strong> through perimenopause and changing priorities.</p></div>
+      <div class="support"><svg class="icon" aria-hidden="true"><use href="#i-talk"/></svg><p><strong>Conflicting advice</strong> made clearer and easier to apply.</p></div>
+      <div class="support"><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg><p><strong>Habits and routines</strong> that work in real life.</p></div>
+      <div class="support"><svg class="icon" aria-hidden="true"><use href="#i-digest"/></svg><p><strong>Digestion and sensitivities</strong> explored through tolerance and patterns.</p></div>
+      <div class="support"><svg class="icon" aria-hidden="true"><use href="#i-active"/></svg><p><strong>Active lifestyles</strong> supported through energy and recovery.</p></div>
+    </div></section>
+
+    <section class="shell option" id="two"><div class="option-label"><b>2</b> Two-column editorial list</div><div class="heading"><p class="eyebrow">Who I help</p><h2>Start with what is happening now.</h2></div><div class="swipe-hint" aria-hidden="true">Swipe to explore</div><div class="two-column">
+      <div class="support"><svg class="icon" aria-hidden="true"><use href="#i-glp"/></svg><p><strong>GLP-1 support</strong> alongside care from your prescribing healthcare provider.</p></div>
+      <div class="support"><svg class="icon" aria-hidden="true"><use href="#i-leaf"/></svg><p><strong>Midlife nutrition</strong> through perimenopause and changing priorities.</p></div>
+      <div class="support"><svg class="icon" aria-hidden="true"><use href="#i-talk"/></svg><p><strong>Conflicting advice</strong> made clearer and easier to apply.</p></div>
+      <div class="support"><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg><p><strong>Habits and routines</strong> that work in real life.</p></div>
+      <div class="support"><svg class="icon" aria-hidden="true"><use href="#i-digest"/></svg><p><strong>Digestion and sensitivities</strong> explored through tolerance and patterns.</p></div>
+      <div class="support"><svg class="icon" aria-hidden="true"><use href="#i-active"/></svg><p><strong>Active lifestyles</strong> supported through energy and recovery.</p></div>
+    </div></section>
+
+    <section class="shell option" id="three"><div class="option-label"><b>3</b> Connected path</div><div class="heading"><p class="eyebrow">Who I help</p><h2>Different starting points. One connected approach.</h2></div><div class="path">
+      <div class="support"><svg class="icon" aria-hidden="true"><use href="#i-glp"/></svg><p><strong>GLP-1 support</strong> alongside your healthcare provider.</p></div>
+      <div class="support"><svg class="icon" aria-hidden="true"><use href="#i-leaf"/></svg><p><strong>Midlife nutrition</strong> for changing priorities.</p></div>
+      <div class="support"><svg class="icon" aria-hidden="true"><use href="#i-talk"/></svg><p><strong>Conflicting advice</strong> made clearer.</p></div>
+      <div class="support"><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg><p><strong>Habits and routines</strong> built for real life.</p></div>
+      <div class="support"><svg class="icon" aria-hidden="true"><use href="#i-digest"/></svg><p><strong>Digestion and sensitivities</strong> explored carefully.</p></div>
+      <div class="support"><svg class="icon" aria-hidden="true"><use href="#i-active"/></svg><p><strong>Active lifestyles</strong> supported through nutrition.</p></div>
+    </div></section>
+
+    <section class="shell option" id="four"><div class="option-label"><b>4</b> Staggered rhythm</div><div class="heading"><p class="eyebrow">Who I help</p><h2>Nutrition support that meets you where you are.</h2></div><div class="stagger">
+      <div class="support"><svg class="icon" aria-hidden="true"><use href="#i-glp"/></svg><p><strong>GLP-1 support</strong> alongside care from your prescribing healthcare provider.</p></div>
+      <div class="support"><svg class="icon" aria-hidden="true"><use href="#i-leaf"/></svg><p><strong>Midlife nutrition</strong> through perimenopause and changing priorities.</p></div>
+      <div class="support"><svg class="icon" aria-hidden="true"><use href="#i-talk"/></svg><p><strong>Conflicting advice</strong> made clearer and easier to apply.</p></div>
+      <div class="support"><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg><p><strong>Habits and routines</strong> that work in real life.</p></div>
+      <div class="support"><svg class="icon" aria-hidden="true"><use href="#i-digest"/></svg><p><strong>Digestion and sensitivities</strong> explored through tolerance and patterns.</p></div>
+      <div class="support"><svg class="icon" aria-hidden="true"><use href="#i-active"/></svg><p><strong>Active lifestyles</strong> supported through energy and recovery.</p></div>
+    </div></section>
+
+    <section class="shell option dark" id="five"><div class="option-label"><b>5</b> Dark continuous field</div><div class="heading"><p class="eyebrow">Who I help</p><h2>Support for the whole picture.</h2><p>Minimal content with the same dark visual language as the Living Network section.</p></div><div class="dark-flow">
+      <div class="support"><svg class="icon" aria-hidden="true"><use href="#i-glp"/></svg><p><strong>GLP-1 support</strong> alongside care from your prescribing healthcare provider.</p></div>
+      <div class="support"><svg class="icon" aria-hidden="true"><use href="#i-leaf"/></svg><p><strong>Midlife nutrition</strong> through perimenopause and changing priorities.</p></div>
+      <div class="support"><svg class="icon" aria-hidden="true"><use href="#i-talk"/></svg><p><strong>Conflicting advice</strong> made clearer and easier to apply.</p></div>
+      <div class="support"><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg><p><strong>Habits and routines</strong> that work in real life.</p></div>
+      <div class="support"><svg class="icon" aria-hidden="true"><use href="#i-digest"/></svg><p><strong>Digestion and sensitivities</strong> explored through tolerance and patterns.</p></div>
+      <div class="support"><svg class="icon" aria-hidden="true"><use href="#i-active"/></svg><p><strong>Active lifestyles</strong> supported through energy and recovery.</p></div>
+    </div></section>
+  </main>
+</body>
+</html>
