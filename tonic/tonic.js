@@ -237,6 +237,10 @@ function applyTonicBrand(pageFrame) {
 
   applyConnectedWho(doc);
 
+  const nutritionEducationTitle = [...doc.querySelectorAll('main h2')]
+    .find((heading) => heading.textContent.trim() === 'Nutrition education you can use.');
+  nutritionEducationTitle?.closest('section')?.remove();
+
   doc.querySelectorAll('[aria-label]').forEach((element) => {
     element.setAttribute('aria-label', element.getAttribute('aria-label').replaceAll('somaē', BRAND_NAME));
   });
