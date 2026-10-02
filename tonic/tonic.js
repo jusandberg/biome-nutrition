@@ -241,6 +241,8 @@ function applyTonicBrand(pageFrame) {
     .find((heading) => heading.textContent.trim() === 'Nutrition education you can use.');
   nutritionEducationTitle?.closest('section')?.remove();
 
+  if (doc.querySelector('#home')) doc.querySelector('.faq')?.remove();
+
   doc.querySelectorAll('[aria-label]').forEach((element) => {
     element.setAttribute('aria-label', element.getAttribute('aria-label').replaceAll('somaē', BRAND_NAME));
   });
