@@ -1,6 +1,15 @@
-# hōlus experimental brand concept
+# hōlus. experimental brand concept
 
-This directory is a standalone brand comparison. It displays the current somaē website exactly as maintained by the production wrapper and changes only the visible brand name to `hōlus`. It does not modify the production somaē pages, styles, scripts, branding configuration, routing, content, or assets.
+This directory is a standalone brand comparison. It displays the current somaē website exactly as maintained by the production wrapper and applies the hōlus brand and approved policy copy without modifying the production somaē pages, styles, scripts, branding configuration, routing, content, or assets.
+
+## Brand usage
+
+- `hōlus.` — visual logo, website header, social graphics and product branding.
+- `Hōlus Nutrition Counselling` — policies, emails, invoices and professional documents.
+- `HOLUS` — plain-letter uppercase use, including trademark searches.
+- `holus.ca` — website and email addresses.
+
+The period belongs to the visual logo rather than the legal business name.
 
 ## Local preview
 

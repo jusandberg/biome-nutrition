@@ -1,4 +1,5 @@
-const BRAND_NAME = 'hōlus';
+const BRAND_NAME = 'hōlus.';
+const FORMAL_NAME = 'Hōlus Nutrition Counselling';
 const BRAND_DESCRIPTOR = 'Nutrition Counselling';
 const shellFrame = document.querySelector('#tonic-site');
 
@@ -18,8 +19,87 @@ function replaceBrandText(doc) {
 
   textNodes.forEach((node) => {
     if (node.parentElement?.closest('script, style')) return;
-    node.nodeValue = node.nodeValue.replaceAll('somaē', BRAND_NAME);
+    node.nodeValue = node.nodeValue.replaceAll('somaē', FORMAL_NAME);
   });
+}
+
+function rewriteHolusPolicies(doc) {
+  if (!doc.body.classList.contains('policy-page')) return;
+  const main = doc.querySelector('#main');
+  if (!main || main.dataset.holusPolicies === 'true') return;
+
+  main.dataset.holusPolicies = 'true';
+  main.innerHTML = `
+    <header class="policy-hero">
+      <p class="eyebrow">Website policies</p>
+      <h1>${FORMAL_NAME}</h1>
+      <p>Operated by Juliana dos Santos in Ontario, Canada.</p>
+    </header>
+    <div class="policy-stack">
+      <section id="privacy" class="policy-card">
+        <h2>1. Privacy Policy</h2>
+        <p>At ${FORMAL_NAME}, your privacy matters. We collect personal information necessary to provide nutrition counselling and related services.</p>
+        <h3>Information we collect</h3>
+        <p>Depending on your interactions with us, this may include:</p>
+        <ul>
+          <li>Your name, email address, telephone number and appointment information.</li>
+          <li>Relevant health, nutrition, dietary and lifestyle information that you voluntarily provide.</li>
+          <li>Your goals, preferences and information shared during consultations.</li>
+          <li>Payment and transaction information processed through our payment providers.</li>
+        </ul>
+        <h3>How we use your information</h3>
+        <p>We use your information to deliver our services, communicate with you, manage appointments, maintain client records, process payments and meet applicable legal and administrative obligations.</p>
+        <h3>Confidentiality and information sharing</h3>
+        <p>We take reasonable measures to safeguard personal information. We do not sell your personal information.</p>
+        <p>Information may be shared with service providers when necessary to operate our practice, with your consent or when required or permitted by law. Service providers are expected to maintain appropriate privacy and security protections.</p>
+        <h3>Retention and your rights</h3>
+        <p>Personal information is retained for as long as necessary to provide services and meet applicable legal and professional requirements.</p>
+        <p>You may request access to your personal information or ask us to correct inaccurate information, subject to applicable legal exceptions.</p>
+        <p>For privacy questions or requests, contact:<br>Juliana dos Santos<br>${FORMAL_NAME}<br><a href="mailto:hello@theumethod.ca">hello@theumethod.ca</a></p>
+      </section>
+
+      <section id="scope" class="policy-card">
+        <h2>2. Scope of Practice</h2>
+        <p>${FORMAL_NAME} provides individualized, evidence-informed nutrition education, counselling and behaviour-change support.</p>
+        <p>Depending on your needs and the practitioner's qualifications, services may include nutritional assessments, dietary reviews, personalized nutrition recommendations, meal planning, supplement education, practical lifestyle strategies and follow-up support.</p>
+        <p>Our approach considers your biology, preferences, goals, behaviours and everyday circumstances.</p>
+        <h3>Professional boundaries</h3>
+        <p>Nutrition counselling is not a substitute for medical assessment, diagnosis or treatment.</p>
+        <p>Services do not include diagnosing medical conditions, prescribing medication, changing prescribed treatments or independently interpreting medical tests for diagnostic purposes.</p>
+        <p>Where appropriate, clients may be referred to or encouraged to collaborate with qualified healthcare professionals.</p>
+        <p>Recommendations are provided within the practitioner's training, qualifications and applicable professional scope.</p>
+      </section>
+
+      <section id="terms" class="policy-card">
+        <h2>3. Terms and Conditions</h2>
+        <p>By booking or using ${FORMAL_NAME} services, you acknowledge the following terms.</p>
+        <h3>Services</h3>
+        <p>Our services provide individualized nutrition education and counselling. Recommendations are based on information you share, relevant evidence and the practitioner's professional scope.</p>
+        <p>Individual results vary, and specific outcomes cannot be guaranteed.</p>
+        <h3>Client responsibilities</h3>
+        <p>Clients are responsible for providing accurate and relevant information, communicating changes that may affect their nutrition needs, attending scheduled appointments and consulting appropriate medical professionals when necessary.</p>
+        <h3>Appointments and payments</h3>
+        <p>Appointment durations, fees and available services are displayed during booking. Applicable fees and payment requirements will be communicated before your appointment.</p>
+        <div id="cancellation">
+          <h3>Cancellations and rescheduling</h3>
+          <p>Appointments may be cancelled or rescheduled with at least 24 hours' notice.</p>
+          <p>Cancellations made with less than 24 hours' notice and missed appointments may be subject to the applicable cancellation fee disclosed during booking. Exceptions may be considered for emergencies at the practitioner's discretion.</p>
+        </div>
+        <h3>Educational resources</h3>
+        <p>Website articles, downloadable materials and other educational content are provided for general information. They are not individualized medical advice.</p>
+        <h3>Intellectual property</h3>
+        <p>Unless otherwise stated, original website content and educational materials belong to ${FORMAL_NAME}. They may not be reproduced or distributed commercially without permission.</p>
+        <h3>Applicable law</h3>
+        <p>These terms are governed by the applicable laws of Ontario and Canada.</p>
+        <h3>Contact</h3>
+        <p>${FORMAL_NAME}<br>Juliana dos Santos<br><a href="mailto:hello@theumethod.ca">hello@theumethod.ca</a></p>
+      </section>
+
+      <section id="contact-policy" class="policy-card">
+        <p><strong>Last updated:</strong> October 2, 2026</p>
+        <p><small>These policies should be reviewed before publication to ensure they accurately reflect the practice's booking system, payment processing, privacy procedures, professional credentials and applicable legal requirements.</small></p>
+      </section>
+    </div>`;
 }
 
 function applyConnectedWho(doc) {
@@ -237,6 +317,8 @@ function applyTonicBrand(pageFrame) {
 
   applyConnectedWho(doc);
 
+  rewriteHolusPolicies(doc);
+
   const nutritionEducationTitle = [...doc.querySelectorAll('main h2')]
     .find((heading) => heading.textContent.trim() === 'Nutrition education you can use.');
   nutritionEducationTitle?.closest('section')?.remove();
@@ -244,7 +326,7 @@ function applyTonicBrand(pageFrame) {
   if (doc.querySelector('#home')) doc.querySelector('.faq')?.remove();
 
   doc.querySelectorAll('[aria-label]').forEach((element) => {
-    element.setAttribute('aria-label', element.getAttribute('aria-label').replaceAll('somaē', BRAND_NAME));
+    element.setAttribute('aria-label', element.getAttribute('aria-label').replaceAll('somaē', FORMAL_NAME));
   });
 
   applyLivingNetwork(doc, pageFrame.contentWindow);
