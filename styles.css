@@ -531,7 +531,7 @@ em { color: var(--sage); font-style: normal; }
 .digest-reading .digest-frame { position: fixed; inset: 0; z-index: 1000; width: 100%; height: 100% !important; }
 
 /* Illustrated food: three steps on Nutrition & behaviour */
-.behaviour-steps { background: var(--white); }
+.behaviour-steps { background: var(--paper); }
 .step-cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(1rem, 2.5vw, 1.75rem); margin: 0; padding: 0; list-style: none; }
 .step-cards li { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1.1rem; min-width: 0; }
 .step-cards figure { margin: 0; display: grid; place-items: center; aspect-ratio: 6 / 5; border-radius: 1.25rem; background: var(--mist); }
@@ -556,3 +556,28 @@ em { color: var(--sage); font-style: normal; }
 .insurance-title { display: inline-flex; align-items: center; gap: .75rem; }
 .insurance-title svg { width: 1.35rem; height: 1.35rem; fill: none; stroke: var(--sage-deep); stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
 .brand-insurance-hero { align-self: end; }
+
+/* Next-step teaser: a soft, page-specific prompt instead of a repeated dark closing section */
+.next-step { padding-block: clamp(3rem, 6vw, 5rem); background: var(--paper); }
+.next-card { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: clamp(1.25rem, 3vw, 2.5rem); padding: clamp(1.25rem, 3vw, 2rem) clamp(1.25rem, 3.5vw, 2.5rem); border-radius: 1.5rem; background: var(--mist); }
+.next-art { margin: 0; width: clamp(5.5rem, 10vw, 8rem); }
+.next-art img { display: block; width: 100%; height: auto; }
+.next-copy { min-width: 0; }
+.next-copy .eyebrow { margin: 0 0 .4rem; color: var(--sage-deep); }
+.next-copy h2 { margin: 0; font-size: clamp(1.5rem, 2.6vw, 2.1rem); letter-spacing: -.035em; line-height: 1.1; }
+.next-copy p:not(.eyebrow) { margin: .5rem 0 0; color: var(--muted); font-size: 1rem; }
+.next-chips { display: flex; flex-wrap: wrap; gap: .6rem; justify-content: flex-end; }
+.chip-link { display: inline-flex; align-items: center; gap: .15rem; padding: .7rem 1.15rem; border: 1px solid var(--ink); border-radius: 999px; color: var(--ink); background: transparent; font: 700 .92rem/1 Manrope, sans-serif; text-decoration: none; white-space: nowrap; transition: background .2s, color .2s; }
+.chip-link:hover { background: var(--paper); }
+.chip-link.chip-primary { background: var(--ink); color: var(--paper); }
+.chip-link.chip-primary:hover { background: var(--ink-deep); }
+.chip-link:focus-visible { outline: 2px solid var(--sage); outline-offset: 3px; }
+@media (max-width: 820px) {
+  .next-card { grid-template-columns: auto minmax(0, 1fr); }
+  .next-chips { grid-column: 1 / -1; justify-content: flex-start; }
+}
+@media (max-width: 480px) {
+  .next-card { grid-template-columns: minmax(0, 1fr); }
+  .next-art { width: 5rem; }
+  .chip-link { flex: 1 1 auto; justify-content: center; }
+}
