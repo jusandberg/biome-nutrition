@@ -13,11 +13,11 @@ The period belongs to the visual logo rather than the legal business name.
 
 ## Local preview
 
-Serve the repository root with any static HTTP server, then open `/tonic/`.
+Serve the repository root with any static HTTP server, then open `/holus/`.
 
 Example route when the existing local preview runs on port 4180:
 
-`http://127.0.0.1:4180/tonic/`
+`http://127.0.0.1:4180/holus/`
 
 ## Comparison scope
 

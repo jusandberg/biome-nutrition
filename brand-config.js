@@ -17,7 +17,7 @@
     </span>`;
 
   const applyProjectPageLinks = (root = document) => {
-    const projectPath = '/biome-nutrition';
+    const projectPath = '/holus-nutrition';
     const isProjectPage = window.location.hostname.endsWith('.github.io')
       && window.location.pathname.startsWith(`${projectPath}/`);
 
