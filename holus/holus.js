@@ -174,23 +174,23 @@ function applyLivingNetwork(doc, pageWindow) {
     const styles = doc.createElement('style');
     styles.id = 'holus-network-styles';
     styles.textContent = `
-      .holus-network-section { overflow: hidden; color: white; background: var(--ink); }
+      .holus-network-section { overflow: hidden; color: var(--ink); background: var(--mist); }
       .holus-network-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: center; gap: clamp(3rem, 8vw, 7rem); }
       .holus-network-visual { min-width: 0; }
       .holus-network-visual svg { width: 100%; height: auto; }
-      .holus-network-visual line { stroke: rgba(255,255,255,.24); stroke-width: 1.3; }
-      .holus-network-visual circle { fill: var(--ink-deep); stroke: none; }
+      .holus-network-visual line { stroke: rgba(36,51,65,.22); stroke-width: 1.3; }
+      .holus-network-visual circle { fill: white; stroke: var(--sage-light); stroke-width: 1.5; }
       .holus-network-visual .tn-core { fill: var(--sage); stroke: none; }
-      .holus-network-visual text { fill: white; font: 600 13px Manrope, sans-serif; text-anchor: middle; }
+      .holus-network-visual text { fill: var(--ink); font: 600 13px Manrope, sans-serif; text-anchor: middle; }
       .holus-network-visual .tn-core-text { fill: white; font-weight: 700; }
-      .holus-network-copy .eyebrow { color: var(--sage-light); }
-      .holus-network-copy h2 { max-width: 10ch; color: white; }
-      .holus-network-copy > p:not(.eyebrow) { max-width: 36rem; margin: 1.35rem 0 0; color: rgba(255,255,255,.72); font-size: 1.04rem; }
-      .holus-network-copy .text-link { color: white; }
-      .holus-network-points { display: flex; flex-wrap: wrap; gap: .35rem; margin: 1.6rem 0 2rem; padding: 0; color: var(--sage-light); list-style: none; font: 700 .88rem/1.5 Manrope, sans-serif; }
-      .holus-network-points li:not(:last-child)::after { content: " ·"; margin-left: .35rem; color: rgba(255,255,255,.48); }
+      .holus-network-copy .eyebrow { color: var(--sage-deep); }
+      .holus-network-copy h2 { max-width: 10ch; color: var(--ink); }
+      .holus-network-copy > p:not(.eyebrow) { max-width: 36rem; margin: 1.35rem 0 0; color: var(--muted); font-size: 1.04rem; }
+      .holus-network-copy .text-link { color: var(--ink); }
+      .holus-network-points { display: flex; flex-wrap: wrap; gap: .35rem; margin: 1.6rem 0 2rem; padding: 0; color: var(--sage-deep); list-style: none; font: 700 .88rem/1.5 Manrope, sans-serif; }
+      .holus-network-points li:not(:last-child)::after { content: " ·"; margin-left: .35rem; color: var(--sage-light); }
       .holus-network-visual .tn-lines line { stroke-dasharray: 420; stroke-dashoffset: 420; }
-      .holus-network-visual .tn-signals line { opacity: 0; stroke: white; stroke-width: 4; stroke-linecap: round; stroke-dasharray: 18 500; stroke-dashoffset: 0; }
+      .holus-network-visual .tn-signals line { opacity: 0; stroke: var(--sage); stroke-width: 4; stroke-linecap: round; stroke-dasharray: 18 500; stroke-dashoffset: 0; }
       .holus-network-visual .tn-nodes circle { opacity: 0; transform: scale(.78); transform-box: fill-box; transform-origin: center; }
       .holus-network-visual .tn-labels { opacity: 0; }
       .holus-network-visual.is-visible .tn-lines line { animation: holus-net-draw .9s ease-out forwards; }
