@@ -522,3 +522,11 @@ em { color: var(--sage); font-style: normal; }
   .method-circle { z-index: 1; }
   .method-circle::before { opacity: .72; transform: none; }
 }
+
+/* Inline arrow icon (replaces the ↗ character, which some phones draw as an emoji) */
+.arr{display:inline-block;width:.72em;height:.72em;margin-left:.2em;vertical-align:.02em;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+
+/* Digest frame grows with its content; the full-screen reader takes over the viewport */
+.digest-frame.is-sized { overflow: hidden; }
+.digest-reading, .digest-reading body { overflow: hidden; }
+.digest-reading .digest-frame { position: fixed; inset: 0; z-index: 1000; width: 100%; height: 100% !important; }

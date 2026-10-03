@@ -7,7 +7,7 @@
     descriptor: 'Nutrition Counselling',
     tagline: 'Nutrition that begins with you.',
     digestName: 'Hōlus Digest',
-    favicon: 'assets/holus-favicon.svg'
+    favicon: 'favicon.svg'
   });
 
   const wordmarkMarkup = (includeDescriptor = true) => `
