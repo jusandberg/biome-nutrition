@@ -375,7 +375,7 @@
       const homeFaq = doc.querySelector('#faq');
       const homeServices = doc.querySelector('#services');
       if (homeFaq && homeServices && !isServicesPage) homeServices.insertAdjacentElement('afterend', homeFaq);
-      homeFaq?.querySelector('a[href="/faq/"]')?.remove();
+      homeFaq?.querySelector('a[href="/nutritional-counselling/#faq"]')?.remove();
 
       doc.querySelectorAll('a').forEach((link) => {
         const originalHref = link.getAttribute('href');

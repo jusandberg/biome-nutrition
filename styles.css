@@ -148,9 +148,7 @@ em { color: var(--sage); font-style: normal; }
 .image-ribbon { display: grid; grid-template-columns: .78fr 1.22fr .78fr; gap: .65rem; width: min(100% - 2.5rem, 88rem); margin: 0 auto clamp(1rem, 2vw, 2rem); }
 .image-ribbon figure { margin: 0; overflow: hidden; border-radius: 1.25rem; }
 .image-ribbon img { width: 100%; height: clamp(8rem, 13vw, 12.5rem); object-fit: cover; transition: transform .6s ease; }
-.image-ribbon figure:first-child img { object-position: 50% 48%; }
-.image-ribbon figure:nth-child(2) img { object-position: 50% 63%; }
-.image-ribbon figure:last-child img { object-position: 58% 55%; }
+.image-ribbon img { object-position: 50% 50%; }
 .image-ribbon figure:hover img { transform: scale(1.025); }
 
 .services { color: white; background: var(--ink); }
@@ -432,7 +430,8 @@ em { color: var(--sage); font-style: normal; }
   .expect-list li:not(:last-child)::after { display: none; }
   .image-ribbon { grid-template-columns: 1fr 1fr; }
   .image-ribbon figure:first-child { grid-column: 1 / -1; }
-  .image-ribbon figure:first-child img { height: 8rem; }
+  .image-ribbon figure:first-child { background: #EEF2ED; }
+  .image-ribbon figure:first-child img { height: 8rem; object-fit: contain; }
   .services-intro { gap: 1.5rem; }
   .price-card { min-height: 18rem; }
   .footer-inner { display: grid; }
