@@ -1,7 +1,7 @@
 const BRAND_NAME = 'hōlus.';
 const FORMAL_NAME = 'Hōlus Nutrition Counselling';
 const BRAND_DESCRIPTOR = 'Nutrition Counselling';
-const shellFrame = document.querySelector('#tonic-site');
+const shellFrame = document.querySelector('#tonic-site') || document.querySelector('#brand-site');
 
 function wordmarkMarkup(includeDescriptor = true) {
   return `
@@ -19,7 +19,7 @@ function replaceBrandText(doc) {
 
   textNodes.forEach((node) => {
     if (node.parentElement?.closest('script, style')) return;
-    node.nodeValue = node.nodeValue.replaceAll('somaē', FORMAL_NAME);
+    node.nodeValue = node.nodeValue.replaceAll('Hōlus Nutrition Counselling', FORMAL_NAME);
   });
 }
 
@@ -55,7 +55,7 @@ function rewriteHolusPolicies(doc) {
         <h3>Retention and your rights</h3>
         <p>Personal information is retained for as long as necessary to provide services and meet applicable legal and professional requirements.</p>
         <p>You may request access to your personal information or ask us to correct inaccurate information, subject to applicable legal exceptions.</p>
-        <p>For privacy questions or requests, contact:<br>Juliana dos Santos<br>${FORMAL_NAME}<br><a href="mailto:hello@theumethod.ca">hello@theumethod.ca</a></p>
+        <p>For privacy questions or requests, contact:<br>Juliana dos Santos<br>${FORMAL_NAME}<br><a href="mailto:hello@holus.ca">hello@holus.ca</a></p>
       </section>
 
       <section id="scope" class="policy-card">
@@ -92,11 +92,11 @@ function rewriteHolusPolicies(doc) {
         <h3>Applicable law</h3>
         <p>These terms are governed by the applicable laws of Ontario and Canada.</p>
         <h3>Contact</h3>
-        <p>${FORMAL_NAME}<br>Juliana dos Santos<br><a href="mailto:hello@theumethod.ca">hello@theumethod.ca</a></p>
+        <p>${FORMAL_NAME}<br>Juliana dos Santos<br><a href="mailto:hello@holus.ca">hello@holus.ca</a></p>
       </section>
 
       <section id="contact-policy" class="policy-card">
-        <p><strong>Last updated:</strong> October 2, 2026</p>
+        <p><strong>Last updated:</strong> October 3, 2026</p>
         <p><small>These policies should be reviewed before publication to ensure they accurately reflect the practice's booking system, payment processing, privacy procedures, professional credentials and applicable legal requirements.</small></p>
       </section>
     </div>`;
@@ -297,7 +297,7 @@ function applyTonicBrand(pageFrame) {
   const doc = pageFrame?.contentDocument;
   if (!doc?.body) return;
 
-  doc.title = doc.title.replaceAll('somaē', BRAND_NAME);
+  doc.title = doc.title.replaceAll('Hōlus Nutrition Counselling', BRAND_NAME);
 
   doc.querySelectorAll('.brand').forEach((brand) => {
     brand.setAttribute('aria-label', `${BRAND_NAME} ${BRAND_DESCRIPTOR} home`);
@@ -326,7 +326,7 @@ function applyTonicBrand(pageFrame) {
   if (doc.querySelector('#home')) doc.querySelector('.faq')?.remove();
 
   doc.querySelectorAll('[aria-label]').forEach((element) => {
-    element.setAttribute('aria-label', element.getAttribute('aria-label').replaceAll('somaē', FORMAL_NAME));
+    element.setAttribute('aria-label', element.getAttribute('aria-label').replaceAll('Hōlus Nutrition Counselling', FORMAL_NAME));
   });
 
   applyLivingNetwork(doc, pageFrame.contentWindow);
@@ -336,10 +336,16 @@ function applyTonicBrand(pageFrame) {
 
 function connectToCurrentSite() {
   const shellDocument = shellFrame.contentDocument;
-  const pageFrame = shellDocument?.querySelector('#brand-site');
-  if (!pageFrame) return;
+  const nestedFrame = shellDocument?.querySelector('#brand-site');
 
-  shellDocument.title = shellDocument.title.replaceAll('somaē', BRAND_NAME);
+  if (!nestedFrame) {
+    requestAnimationFrame(() => applyTonicBrand(shellFrame));
+    return;
+  }
+
+  const pageFrame = nestedFrame;
+
+  shellDocument.title = shellDocument.title.replaceAll('Hōlus Nutrition Counselling', BRAND_NAME);
   pageFrame.setAttribute('title', `${BRAND_NAME} ${BRAND_DESCRIPTOR} website`);
 
   const rebrand = () => requestAnimationFrame(() => applyTonicBrand(pageFrame));

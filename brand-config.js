@@ -1,18 +1,18 @@
 (() => {
-  const SOURCE_BRAND_NAME = 'somaē';
+  const SOURCE_BRAND_NAME = 'Hōlus Nutrition Counselling';
 
   const BRAND_CONFIG = Object.freeze({
-    name: 'somaē',
+    name: 'hōlus.',
+    formalName: 'Hōlus Nutrition Counselling',
     descriptor: 'Nutrition Counselling',
     tagline: 'Nutrition that begins with you.',
-    digestName: 'somaē Digest',
-    favicon: 'assets/somae-favicon.svg'
+    digestName: 'Hōlus Digest',
+    favicon: 'assets/holus-favicon.svg'
   });
 
-  const wordmarkBase = 'soma';
   const wordmarkMarkup = (includeDescriptor = true) => `
     <span class="brand-lockup">
-      <span class="brand-wordmark" aria-label="${BRAND_CONFIG.name}"><span>${wordmarkBase}</span><span class="brand-accent" aria-hidden="true">e</span></span>
+      <span class="brand-wordmark" aria-label="${BRAND_CONFIG.name}">${BRAND_CONFIG.name}</span>
       ${includeDescriptor ? `<span class="brand-descriptor">${BRAND_CONFIG.descriptor}</span>` : ''}
     </span>`;
 
@@ -43,7 +43,7 @@
     if (root.title) root.title = root.title.replaceAll(SOURCE_BRAND_NAME, BRAND_CONFIG.name);
     root.querySelectorAll('meta[content], [aria-label]').forEach((element) => {
       const attribute = element.hasAttribute('content') ? 'content' : 'aria-label';
-      element.setAttribute(attribute, element.getAttribute(attribute).replaceAll(SOURCE_BRAND_NAME, BRAND_CONFIG.name));
+      element.setAttribute(attribute, element.getAttribute(attribute).replaceAll(SOURCE_BRAND_NAME, BRAND_CONFIG.formalName));
     });
 
     applyProjectPageLinks(root);

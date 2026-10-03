@@ -1,4 +1,4 @@
-# somaē brand guidelines
+# Hōlus Nutrition Counselling brand guidelines
 
 Status: approved working system, version 1  
 Last consolidated: September 26, 2026
@@ -7,29 +7,30 @@ The interactive companion is [`brand-guide.html`](brand-guide.html). It contains
 
 ## Brand foundation
 
-- Brand name: **somaē**
+- Visual wordmark: **hōlus.**
+- Formal business name: **Hōlus Nutrition Counselling**
 - Descriptor: **NUTRITION COUNSELLING**
 - Tagline: **Nutrition that begins with you.**
-- Brand name casing: always lowercase in prose and display use
+- Brand-name casing: lowercase for the visual identity; capitalized in formal documents
 - Character: modern, intelligent, warm, human, evidence-informed, refined, and established
 - Avoid: tech-startup, SaaS, pharmaceutical, clinical, overly geometric, playful, childish, futuristic, or generic-wellness treatments
 
 ## Wordmark
 
-The approved wordmark is the light-weight **somae** construction with a custom sage macron drawn above the final `e`. In ordinary text, write the name as **somaē** using the macron character.
+The approved visual wordmark is **hōlus.** in lowercase, including the macron over the `o` and the final period. Use **Hōlus Nutrition Counselling** in policies, emails, invoices and professional documents. Use **HOLUS** only where plain uppercase letters are required, such as trademark searches.
 
 - Typeface: Manrope Light (`300`)
 - Letter spacing: approximately `-0.045em`
 - Primary letter colour: Ink `#243341`
-- Signature macron colour: Sage `#71836D`
+- Wordmark colour: Ink `#243341`
 - Descriptor: Manrope Bold, uppercase, widely tracked, in Sage Deep `#4B5D49`
 - Minimum screen width: 90 px; use the favicon below this size
-- Clear space: at least the height of the final `e` on every side
+- Clear space: at least the wordmark's x-height on every side
 - Approved backgrounds: White, Mist, Ink, and Sage Deep
 
-On Ink or Sage Deep, use white lettering. Use Sage Light for the macron on Ink and white for the macron on Sage Deep. Keep the descriptor quiet and secondary.
+On Ink or Sage Deep, use white lettering. Keep the descriptor quiet and secondary.
 
-Do not bold, stretch, skew, recolour, outline, or add effects to the wordmark. Do not remove the signature macron. Do not replace it with a generic symbol, leaf, molecule, DNA motif, or other logo device.
+Do not bold, stretch, skew, recolour, outline, or add effects to the wordmark. Do not remove the macron or the final period. Do not replace it with a generic symbol, leaf, molecule, DNA motif, or other logo device.
 
 ## Favicon
 
@@ -141,11 +142,10 @@ Write in clear, warm, practical language. The voice should be evidence-informed 
 - Focus on real life, context, choice, and practical next steps
 - Avoid perfection language, moralizing food, jargon, and sales-funnel phrasing
 - Prefer direct, human terms such as “introductory chat”
-- Keep the brand name lowercase: **somaē**
+- Keep the visual wordmark lowercase with its final period: **hōlus.**
 
 ## Governance
 
-These guidelines are the source of truth for future somaē design work. The central site brand values remain in [`brand-config.js`](brand-config.js). Update the written guide, interactive guide, configuration, favicon, and production implementation together when an approved brand decision changes.
+These guidelines are the source of truth for future Hōlus Nutrition Counselling design work. The central site brand values remain in [`brand-config.js`](brand-config.js). Update the written guide, interactive guide, configuration, favicon, and production implementation together when an approved brand decision changes.
 
 The interactive guide may demonstrate future or newly approved treatments before they are applied to the production site. A production change should be made only when it is explicitly requested and visually checked at desktop and mobile sizes.
-

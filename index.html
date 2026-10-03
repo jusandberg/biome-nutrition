@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>somaē | Nutrition Counselling</title>
-  <link rel="icon" href="assets/somae-favicon.svg" type="image/svg+xml">
+  <title>hōlus. | Nutrition Counselling</title>
+  <link rel="icon" href="assets/holus-favicon.svg" type="image/svg+xml">
   <style>
     * { box-sizing: border-box; }
     html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; background: #f4f0e7; }
@@ -15,7 +15,7 @@
 </head>
 <body>
   <div class="loading" aria-live="polite">Preparing the site…</div>
-  <iframe id="brand-site" src="home.html" title="somaē Nutrition Counselling website"></iframe>
+  <iframe id="brand-site" src="home.html" title="Hōlus Nutrition Counselling website"></iframe>
 
   <script src="brand-config.js"></script>
   <script>
@@ -38,7 +38,7 @@
       while (walker.nextNode()) nodes.push(walker.currentNode);
       nodes.forEach((node) => {
         if (node.parentElement?.closest('script, style')) return;
-        node.nodeValue = node.nodeValue.replaceAll('somaē', BRAND.name);
+        node.nodeValue = node.nodeValue.replaceAll('Hōlus Nutrition Counselling', BRAND.formalName);
       });
     }
 
@@ -73,7 +73,7 @@
 
         <section class="behaviour-scope"><div class="section-shell"><p><strong>Within nutritional counselling:</strong> Behaviour-change support focuses on eating patterns, habits, motivation and practical barriers related to nutrition. It is not psychotherapy or psychological treatment.</p></div></section>
 
-        <section class="contact section-pad"><div class="contact-inner section-shell"><img src="../assets/orbit-logo-reverse.svg" alt="" width="88" height="88"><h2>Healthy eating has to fit real life.</h2><p>Good nutrition shouldn’t mean eating perfectly. We’ll look at what you eat, what you need, and what actually works in your day-to-day life.</p><div class="button-row contact-actions"><a class="button button-light" href="mailto:hello@theumethod.ca?subject=Consultation%20booking">Book a consultation</a><a class="button button-outline-light" href="/nutritional-counselling/">Explore nutrition counselling →</a></div></div></section>`;
+        <section class="contact section-pad"><div class="contact-inner section-shell"><img src="../assets/orbit-logo-reverse.svg" alt="" width="88" height="88"><h2>Healthy eating has to fit real life.</h2><p>Good nutrition shouldn’t mean eating perfectly. We’ll look at what you eat, what you need, and what actually works in your day-to-day life.</p><div class="button-row contact-actions"><a class="button button-light" href="mailto:hello@holus.ca?subject=Consultation%20booking">Book a consultation</a><a class="button button-outline-light" href="/nutritional-counselling/">Explore nutrition counselling →</a></div></div></section>`;
     }
 
     function transformSite() {
@@ -203,7 +203,7 @@
       const centreWord = orbit?.querySelector('.orbit-u');
       if (centreWord) centreWord.textContent = 'you';
 
-      const methodEyebrow = [...doc.querySelectorAll('.eyebrow')].find((el) => el.textContent.trim().toLowerCase() === BRAND.name.toLowerCase());
+      const methodEyebrow = [...doc.querySelectorAll('.eyebrow')].find((el) => el.textContent.trim().toLowerCase() === BRAND.formalName.toLowerCase());
       if (methodEyebrow) methodEyebrow.textContent = 'How we work together';
 
       const homeMethod = doc.querySelector('#method');
@@ -299,26 +299,26 @@
             <p class="duration">Initial consultation · 60 minutes — $145</p>
             <h3>Nutrition &amp; Health Consultation</h3>
             <p>A comprehensive conversation about your nutrition, health, routines, preferences and goals. We’ll identify what matters most and create practical, personalized next steps that fit your life.</p>
-            <div class="price-row"><a href="mailto:hello@theumethod.ca?subject=Initial%20nutrition%20consultation">Book ↗</a></div>
+            <div class="price-row"><a href="mailto:hello@holus.ca?subject=Initial%20nutrition%20consultation">Book ↗</a></div>
           </article>
           <article class="price-card">
             <p class="duration">Follow-up · 30 minutes — $80</p>
             <h3>Nutrition Counselling Follow-Up</h3>
             <p>A focused session to review progress, work through challenges, answer questions and adjust your recommendations as needed.</p>
-            <div class="price-row"><a href="mailto:hello@theumethod.ca?subject=Nutrition%20counselling%20follow-up">Book ↗</a></div>
+            <div class="price-row"><a href="mailto:hello@holus.ca?subject=Nutrition%20counselling%20follow-up">Book ↗</a></div>
           </article>
           <article class="price-card featured">
             <p class="duration">Consultation + 7-day meal plan + follow-up — <strong>$295</strong></p>
             <h3>Personalized Nutrition Package</h3>
             <p>A 60-minute consultation, a personalized 7-day meal plan built for your real life, and a 30-minute follow-up to review and adjust it together.</p>
-            <div class="price-row"><a href="mailto:hello@theumethod.ca?subject=Personalized%20nutrition%20package">Book ↗</a></div>
+            <div class="price-row"><a href="mailto:hello@holus.ca?subject=Personalized%20nutrition%20package">Book ↗</a></div>
           </article>`;
 
         const existingChat = services.querySelector('.brand-intro-chat');
         if (existingChat) existingChat.remove();
         const chat = doc.createElement('aside');
         chat.className = 'brand-intro-chat';
-        chat.innerHTML = `<p><strong>Not sure where to start?</strong></p><p>Book a complimentary <strong>15-minute introductory chat</strong> to ask questions and see whether working together feels like a good fit.</p><a href="mailto:hello@theumethod.ca?subject=Free%2015-minute%20introductory%20chat">Book a free 15-minute chat →</a>`;
+        chat.innerHTML = `<p><strong>Not sure where to start?</strong></p><p>Book a complimentary <strong>15-minute introductory chat</strong> to ask questions and see whether working together feels like a good fit.</p><a href="mailto:hello@holus.ca?subject=Free%2015-minute%20introductory%20chat">Book a free 15-minute chat →</a>`;
         pricingGrid.insertAdjacentElement('afterend', chat);
 
         const coverageNote = services.querySelector('.coverage-note');
@@ -391,7 +391,7 @@
       });
 
       doc.querySelectorAll('[aria-label]').forEach((el) => {
-        el.setAttribute('aria-label', el.getAttribute('aria-label').replaceAll('somaē', BRAND.name));
+        el.setAttribute('aria-label', el.getAttribute('aria-label').replaceAll('Hōlus Nutrition Counselling', BRAND.formalName));
       });
 
       document.documentElement.classList.add('ready');
@@ -399,5 +399,6 @@
 
     frame.addEventListener('load', transformSite);
   </script>
+  <script src="tonic/tonic.js"></script>
 </body>
 </html>

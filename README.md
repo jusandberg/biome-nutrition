@@ -1,6 +1,6 @@
-# somaē Nutrition Counselling
+# Hōlus Nutrition Counselling
 
-Static website for somaē Nutrition Counselling, an evidence-informed and person-centred nutrition counselling practice.
+Static website for Hōlus Nutrition Counselling, an evidence-informed and person-centred nutrition counselling practice.
 
 ## Website
 
@@ -12,10 +12,10 @@ Serve this directory with any static web server and open `index.html`.
 
 ## Structure
 
-- `index.html` - somaē presentation layer and homepage entry point
+- `index.html` - Hōlus Nutrition Counselling presentation layer and homepage entry point
 - `home.html` - source homepage used by the presentation layer
 - `brand-config.js` - central working brand name, descriptor, tagline and favicon configuration
-- `SOMAE-BRAND-GUIDELINES.md` - canonical written brand rules and implementation guidance
+- `HOLUS-BRAND-GUIDELINES.md` - canonical written brand rules and implementation guidance
 - `brand-guide.html` - interactive visual companion for the approved brand system
 - `nutritional-counselling/` - services, appointments, pricing and FAQ
 - `nutrition-behaviour-change/` - physiology and behaviour approach
